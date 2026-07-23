@@ -149,10 +149,4 @@ arjun@devbox:~$ echo "thanks for stopping by. let's build from 0 → 1 together.
 arjun@devbox:~$ ./connect.sh --linkedin "<a href="https://linkedin.com/in/arjun-a-1b863a265/">arjun-a</a>" --email "<a href="mailto:rjun.ajay@gmail.com">rjun.ajay@gmail.com</a>"
 </pre>
 
-<br/>
 
-<div align="center">
-
-<img src="https://komarev.com/ghpvc/?username=arjunajaygit&style=for-the-badge&color=58A6FF&label=PROFILE+VIEWS" />
-
-</div>
