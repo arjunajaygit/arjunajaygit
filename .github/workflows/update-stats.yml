@@ -1,0 +1,29 @@
+name: Update GitHub Stats
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # daily at 03:00 UTC
+  workflow_dispatch: {}    # lets you trigger it manually from the Actions tab
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch stats cards
+        run: |
+          mkdir -p assets
+          curl -sf "https://github-readme-stats.vercel.app/api?username=arjunajaygit&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF&icon_color=58A6FF&count_private=false" -o assets/stats-overview.svg
+          curl -sf "https://github-readme-stats.vercel.app/api/top-langs/?username=arjunajaygit&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF" -o assets/stats-langs.svg
+          curl -sf "https://github-readme-streak-stats.herokuapp.com/?user=arjunajaygit&theme=github-dark-blue&hide_border=true&background=0D1117" -o assets/stats-streak.svg
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats-overview.svg assets/stats-langs.svg assets/stats-streak.svg
+          git diff --staged --quiet || git commit -m "chore: refresh github stats cards"
+          git push
