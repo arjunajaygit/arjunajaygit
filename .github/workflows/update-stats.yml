@@ -16,8 +16,8 @@ jobs:
       - name: Fetch stats cards
         run: |
           mkdir -p assets
-          curl -sf "https://github-readme-stats.vercel.app/api?username=arjunajaygit&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF&icon_color=58A6FF&count_private=false" -o assets/stats-overview.svg
-          curl -sf "https://github-readme-stats.vercel.app/api/top-langs/?username=arjunajaygit&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF" -o assets/stats-langs.svg
+          curl -sf "https://github-readme-stats-fast.vercel.app/api?username=arjunajaygit&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF&icon_color=58A6FF&count_private=false" -o assets/stats-overview.svg
+          curl -sf "https://github-readme-stats-fast.vercel.app/api/top-langs/?username=arjunajaygit&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF" -o assets/stats-langs.svg
           curl -sf "https://github-readme-streak-stats.herokuapp.com/?user=arjunajaygit&theme=github-dark-blue&hide_border=true&background=0D1117" -o assets/stats-streak.svg
 
       - name: Commit changes if any
