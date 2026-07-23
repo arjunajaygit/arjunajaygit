@@ -23,8 +23,8 @@ name:      Arjun A
 role:      Full-Stack Engineer / Applied ML & Data Science
 education: B.Tech IT @ CUSAT  +  BS Data Science & Applications @ IIT Madras
 currently: Building SentinelOps — an autonomous AI code-review / DevSecOps engine
-focus:     ["Multi-agent AI systems", "DevSecOps automation", "Full-stack web/mobile"]
-stack:     Python · TypeScript · Flutter · FastAPI · LangGraph · Next.js
+focus:     ["Multi-agent AI Architectures", "DevSecOps automation", "Full-stack web/mobile"]
+stack:     Python · JavaScript · TypeScript · React · Flutter · FastAPI · Node.js · LangGraph · Next.js
 location:  Kochi, Kerala, IN
 contact:   rjun.ajay@gmail.com
 ```
