@@ -144,10 +144,10 @@ Multi-tenant healthcare appointment platform with dedicated Patient / Doctor / A
 
 ## `> exit 0`
 
-```bash
+<pre>
 arjun@devbox:~$ echo "thanks for stopping by. let's build from 0 → 1 together."
-arjun@devbox:~$ ./connect.sh --linkedin "arjun-a" --email "rjun.ajay@gmail.com"
-```
+arjun@devbox:~$ ./connect.sh --linkedin "<a href="https://linkedin.com/in/arjun-a-1b863a265/">arjun-a</a>" --email "<a href="mailto:rjun.ajay@gmail.com">rjun.ajay@gmail.com</a>"
+</pre>
 
 <br/>
 
