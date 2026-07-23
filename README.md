@@ -7,10 +7,6 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/arjun-a-1b863a265/)
 [![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rjun.ajay@gmail.com)
 
-<br/><br/>
-
-<img src="./assets/icode-animation.svg" width="100%"/>
-
 </div>
 
 <br/>
