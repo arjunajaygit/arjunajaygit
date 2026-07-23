@@ -15,22 +15,106 @@
     .sub-role { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 20px; font-weight: 700; fill: url(#accent); }
     .sub-edu { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 15px; fill: #8b949e; }
     .title-bar-text { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 14px; fill: #8b949e; }
+
+    /* Blinking Terminal Cursor Animation */
+    .cursor {
+      fill: #58A6FF;
+      animation: blink 0.8s infinite alternate;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* CS Graph / Neural Network Animations */
+    .net-edge {
+      stroke: #30363d;
+      stroke-width: 1.5;
+      stroke-dasharray: 4 4;
+      animation: dash 15s linear infinite;
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -150; }
+    }
+    .node-pulse-1 {
+      animation: pulse1 3s ease-in-out infinite alternate;
+    }
+    .node-pulse-2 {
+      animation: pulse2 4s ease-in-out infinite alternate 1s;
+    }
+    .node-pulse-3 {
+      animation: pulse1 3.5s ease-in-out infinite alternate 0.5s;
+    }
+    @keyframes pulse1 {
+      0% { r: 6px; fill: #58A6FF; fill-opacity: 0.6; }
+      100% { r: 9px; fill: #79C0FF; fill-opacity: 1; filter: drop-shadow(0 0 6px #58A6FF); }
+    }
+    @keyframes pulse2 {
+      0% { r: 5px; fill: #3fb950; fill-opacity: 0.5; }
+      100% { r: 8px; fill: #56d364; fill-opacity: 0.9; filter: drop-shadow(0 0 5px #3fb950); }
+    }
+
+    /* CS Binary Matrix Background Flow */
+    .binary-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 12px;
+      fill: #58A6FF;
+      letter-spacing: 2px;
+      animation: fadeMatrix 3s ease-in-out infinite alternate;
+    }
+    @keyframes fadeMatrix {
+      0% { opacity: 0.08; }
+      100% { opacity: 0.22; }
+    }
   </style>
+
   <defs>
+    <!-- Background Gradient -->
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0d1117"/>
       <stop offset="50%" stop-color="#161b22"/>
       <stop offset="100%" stop-color="#0d1117"/>
     </linearGradient>
+
+    <!-- Glowing Accent Gradient with Color Animation -->
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#58A6FF"/>
-      <stop offset="100%" stop-color="#79C0FF"/>
+      <stop offset="0%" stop-color="#58A6FF">
+        <animate attributeName="stop-color" values="#58A6FF; #79C0FF; #388bfd; #58A6FF" dur="5s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#79C0FF">
+        <animate attributeName="stop-color" values="#79C0FF; #388bfd; #58A6FF; #79C0FF" dur="5s" repeatCount="indefinite" />
+      </stop>
     </linearGradient>
   </defs>
 
   <!-- Background -->
   <rect width="850" height="260" rx="16" fill="url(#bg)"/>
   <rect x="1" y="1" width="848" height="258" rx="15" fill="none" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- CS Binary Matrix Watermark (Background right side) -->
+  <g class="binary-text" transform="translate(620, 80)">
+    <text x="0" y="0">01001001 01000011</text>
+    <text x="15" y="24">01001111 01000100</text>
+    <text x="0" y="48">01000101 00110000</text>
+    <text x="25" y="72">01010011 01011001</text>
+    <text x="10" y="96">01010011 01010100</text>
+  </g>
+
+  <!-- CS Neural Network / Graph Nodes (Top Right Decorative) -->
+  <g transform="translate(640, 75)">
+    <!-- Graph Edges -->
+    <line x1="40" y1="30" x2="110" y2="15" class="net-edge" />
+    <line x1="40" y1="30" x2="150" y2="65" class="net-edge" />
+    <line x1="110" y1="15" x2="150" y2="65" class="net-edge" />
+    <line x1="110" y1="15" x2="115" y2="115" class="net-edge" />
+    <line x1="150" y1="65" x2="115" y2="115" class="net-edge" />
+
+    <!-- Graph Nodes -->
+    <circle cx="40" cy="30" r="7" class="node-pulse-1" />
+    <circle cx="110" cy="15" r="6" class="node-pulse-2" />
+    <circle cx="150" cy="65" r="8" class="node-pulse-3" />
+    <circle cx="115" cy="115" r="7" class="node-pulse-1" />
+  </g>
 
   <!-- Title bar -->
   <rect x="0" y="0" width="850" height="42" rx="16" fill="#161b22"/>
@@ -40,8 +124,10 @@
   <circle cx="74" cy="21" r="7" fill="#27c93f"/>
   <text x="425" y="27" text-anchor="middle" class="title-bar-text">arjun@github: ~</text>
 
-  <!-- Consolidated Prompt line with tspans -->
+  <!-- Prompt line -->
   <text x="36" y="94" class="prompt-user">arjun@devbox<tspan class="prompt-colon">:</tspan><tspan class="prompt-tilde">~</tspan><tspan class="prompt-cmd">$ ./whoami.sh</tspan></text>
+  <!-- Blinking Cursor right after prompt -->
+  <rect x="428" y="74" width="12" height="24" class="cursor" rx="2" />
 
   <!-- Name -->
   <text x="36" y="148" class="title-name">Hi, I'm Arjun A</text>
