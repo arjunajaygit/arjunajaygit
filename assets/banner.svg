@@ -1,4 +1,4 @@
-<svg width="100%" height="auto" viewBox="0 0 850 260" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" height="auto" viewBox="0 0 950 215" xmlns="http://www.w3.org/2000/svg">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&amp;family=Inter:wght@700;800&amp;display=swap');
     
@@ -7,14 +7,14 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    .prompt-user { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 22px; font-weight: 600; fill: #3fb950; }
-    .prompt-colon { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 22px; fill: #8b949e; }
-    .prompt-tilde { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 22px; fill: #58A6FF; }
-    .prompt-cmd { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 22px; fill: #c9d1d9; }
-    .title-name { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 42px; font-weight: 800; fill: #f0f6fc; }
-    .sub-role { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 20px; font-weight: 700; fill: url(#accent); }
-    .sub-edu { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 15px; fill: #8b949e; }
-    .title-bar-text { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 14px; fill: #8b949e; }
+    .prompt-user { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 19px; font-weight: 600; fill: #3fb950; }
+    .prompt-colon { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 19px; fill: #8b949e; }
+    .prompt-tilde { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 19px; fill: #58A6FF; }
+    .prompt-cmd { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 19px; fill: #c9d1d9; }
+    .title-name { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 34px; font-weight: 800; fill: #f0f6fc; }
+    .sub-role { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 17px; font-weight: 700; fill: url(#accent); }
+    .sub-edu { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 13.5px; fill: #8b949e; }
+    .title-bar-text { font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 13px; fill: #8b949e; }
 
     /* Blinking Terminal Cursor Animation */
     .cursor {
@@ -46,25 +46,25 @@
       animation: pulse1 3.5s ease-in-out infinite alternate 0.5s;
     }
     @keyframes pulse1 {
-      0% { r: 6px; fill: #58A6FF; fill-opacity: 0.6; }
-      100% { r: 9px; fill: #79C0FF; fill-opacity: 1; filter: drop-shadow(0 0 6px #58A6FF); }
+      0% { r: 5px; fill: #58A6FF; fill-opacity: 0.6; }
+      100% { r: 8px; fill: #79C0FF; fill-opacity: 1; filter: drop-shadow(0 0 5px #58A6FF); }
     }
     @keyframes pulse2 {
-      0% { r: 5px; fill: #3fb950; fill-opacity: 0.5; }
-      100% { r: 8px; fill: #56d364; fill-opacity: 0.9; filter: drop-shadow(0 0 5px #3fb950); }
+      0% { r: 4px; fill: #3fb950; fill-opacity: 0.5; }
+      100% { r: 7px; fill: #56d364; fill-opacity: 0.9; filter: drop-shadow(0 0 4px #3fb950); }
     }
 
     /* CS Binary Matrix Background Flow */
     .binary-text {
       font-family: 'Fira Code', monospace;
-      font-size: 12px;
+      font-size: 11px;
       fill: #58A6FF;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       animation: fadeMatrix 3s ease-in-out infinite alternate;
     }
     @keyframes fadeMatrix {
       0% { opacity: 0.08; }
-      100% { opacity: 0.22; }
+      100% { opacity: 0.20; }
     }
   </style>
 
@@ -88,53 +88,53 @@
   </defs>
 
   <!-- Background -->
-  <rect width="850" height="260" rx="16" fill="url(#bg)"/>
-  <rect x="1" y="1" width="848" height="258" rx="15" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <rect width="950" height="215" rx="14" fill="url(#bg)"/>
+  <rect x="1" y="1" width="948" height="213" rx="13" fill="none" stroke="#30363d" stroke-width="1.5"/>
 
   <!-- CS Binary Matrix Watermark (Background right side) -->
-  <g class="binary-text" transform="translate(620, 80)">
+  <g class="binary-text" transform="translate(710, 65)">
     <text x="0" y="0">01001001 01000011</text>
-    <text x="15" y="24">01001111 01000100</text>
-    <text x="0" y="48">01000101 00110000</text>
-    <text x="25" y="72">01010011 01011001</text>
-    <text x="10" y="96">01010011 01010100</text>
+    <text x="12" y="20">01001111 01000100</text>
+    <text x="0" y="40">01000101 00110000</text>
+    <text x="20" y="60">01010011 01011001</text>
+    <text x="8" y="80">01010011 01010100</text>
   </g>
 
   <!-- CS Neural Network / Graph Nodes (Top Right Decorative) -->
-  <g transform="translate(640, 75)">
+  <g transform="translate(730, 60)">
     <!-- Graph Edges -->
-    <line x1="40" y1="30" x2="110" y2="15" class="net-edge" />
-    <line x1="40" y1="30" x2="150" y2="65" class="net-edge" />
-    <line x1="110" y1="15" x2="150" y2="65" class="net-edge" />
-    <line x1="110" y1="15" x2="115" y2="115" class="net-edge" />
-    <line x1="150" y1="65" x2="115" y2="115" class="net-edge" />
+    <line x1="30" y1="25" x2="90" y2="10" class="net-edge" />
+    <line x1="30" y1="25" x2="125" y2="50" class="net-edge" />
+    <line x1="90" y1="10" x2="125" y2="50" class="net-edge" />
+    <line x1="90" y1="10" x2="95" y2="95" class="net-edge" />
+    <line x1="125" y1="50" x2="95" y2="95" class="net-edge" />
 
     <!-- Graph Nodes -->
-    <circle cx="40" cy="30" r="7" class="node-pulse-1" />
-    <circle cx="110" cy="15" r="6" class="node-pulse-2" />
-    <circle cx="150" cy="65" r="8" class="node-pulse-3" />
-    <circle cx="115" cy="115" r="7" class="node-pulse-1" />
+    <circle cx="30" cy="25" r="6" class="node-pulse-1" />
+    <circle cx="90" cy="10" r="5" class="node-pulse-2" />
+    <circle cx="125" cy="50" r="7" class="node-pulse-3" />
+    <circle cx="95" cy="95" r="6" class="node-pulse-1" />
   </g>
 
   <!-- Title bar -->
-  <rect x="0" y="0" width="850" height="42" rx="16" fill="#161b22"/>
-  <rect x="0" y="28" width="850" height="14" fill="#161b22"/>
-  <circle cx="30" cy="21" r="7" fill="#ff5f56"/>
-  <circle cx="52" cy="21" r="7" fill="#ffbd2e"/>
-  <circle cx="74" cy="21" r="7" fill="#27c93f"/>
-  <text x="425" y="27" text-anchor="middle" class="title-bar-text">arjun@github: ~</text>
+  <rect x="0" y="0" width="950" height="36" rx="14" fill="#161b22"/>
+  <rect x="0" y="22" width="950" height="14" fill="#161b22"/>
+  <circle cx="24" cy="18" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="18" r="6" fill="#ffbd2e"/>
+  <circle cx="60" cy="18" r="6" fill="#27c93f"/>
+  <text x="475" y="23" text-anchor="middle" class="title-bar-text">arjun@github: ~</text>
 
   <!-- Prompt line -->
-  <text x="36" y="94" class="prompt-user">arjun@devbox<tspan class="prompt-colon">:</tspan><tspan class="prompt-tilde">~</tspan><tspan class="prompt-cmd">$ ./whoami.sh</tspan></text>
+  <text x="32" y="78" class="prompt-user">arjun@devbox<tspan class="prompt-colon">:</tspan><tspan class="prompt-tilde">~</tspan><tspan class="prompt-cmd">$ ./whoami.sh</tspan></text>
   <!-- Blinking Cursor right after prompt -->
-  <rect x="428" y="74" width="12" height="24" class="cursor" rx="2" />
+  <rect x="375" y="61" width="10" height="20" class="cursor" rx="2" />
 
   <!-- Name -->
-  <text x="36" y="148" class="title-name">Hi, I'm Arjun A</text>
+  <text x="32" y="122" class="title-name">Hi, I'm Arjun A</text>
 
   <!-- Role -->
-  <text x="36" y="190" class="sub-role">Full-Stack Engineer · Data Scientist · AI Systems Builder</text>
+  <text x="32" y="157" class="sub-role">Full-Stack Engineer · Data Scientist · AI Systems Builder</text>
 
   <!-- Education -->
-  <text x="36" y="226" class="sub-edu">B.Tech IT @ CUSAT   ×   BS Data Science @ IIT Madras</text>
+  <text x="32" y="188" class="sub-edu">B.Tech IT @ CUSAT   ×   BS Data Science @ IIT Madras</text>
 </svg>
