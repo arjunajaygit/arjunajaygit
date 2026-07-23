@@ -31,21 +31,6 @@ contact:   rjun.ajay@gmail.com
 
 <br/>
 
-## `> semgrep --scan ./security_pipeline`
-
-```text
-🛡️ DevSecOps Security Audit
--------------------------------------------------------
-[SAST]    Semgrep Static Rules ..... PASSED (0 findings)
-[SCA]     Trivy Dependency Audit ... PASSED (0 CVEs)
-[SECRET]  Gitleaks Vault Scanner ... PASSED (No exposed keys)
-[AI_RAG]  SentinelOps AI Agent ..... ACTIVE (PR Guard)
--------------------------------------------------------
-STATUS: SECURE PRE-MERGE [Zero-Trust Policy Enforced]
-```
-
-<br/>
-
 ## `> system.log --experience`
 
 ```
