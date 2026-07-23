@@ -142,6 +142,15 @@ Multi-tenant healthcare appointment platform with dedicated Patient / Doctor / A
 
 <br/>
 
+## `> exit 0`
+
+```bash
+arjun@devbox:~$ echo "Thanks for stopping by! 🚀 Let's build something awesome together."
+arjun@devbox:~$ ./connect.sh --linkedin "arjun-a" --email "rjun.ajay@gmail.com"
+```
+
+<br/>
+
 <div align="center">
 
 <img src="https://komarev.com/ghpvc/?username=arjunajaygit&style=for-the-badge&color=58A6FF&label=PROFILE+VIEWS" />
