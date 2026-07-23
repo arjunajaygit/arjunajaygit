@@ -31,16 +31,18 @@ contact:   rjun.ajay@gmail.com
 
 <br/>
 
-## `> devsecops.status`
+## `> semgrep --scan ./security_pipeline`
 
-<div align="center">
-
-[![Semgrep](https://img.shields.io/badge/Semgrep-SAST_Engine-0A66C2?style=for-the-badge&logo=semgrep&logoColor=white)](https://semgrep.dev/)
-[![Docker](https://img.shields.io/badge/Docker-Container_Security-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
-[![CI/CD](https://img.shields.io/badge/CI%2FCD-Security_Pipelines-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
-[![Shift Left](https://img.shields.io/badge/DevSecOps-Shift--Left-0d1117?style=for-the-badge&logo=shield&logoColor=58A6FF)](https://github.com/arjunajaygit)
-
-</div>
+```text
+🛡️ DevSecOps Security Audit
+-------------------------------------------------------
+[SAST]    Semgrep Static Rules ..... PASSED (0 findings)
+[SCA]     Trivy Dependency Audit ... PASSED (0 CVEs)
+[SECRET]  Gitleaks Vault Scanner ... PASSED (No exposed keys)
+[AI_RAG]  SentinelOps AI Agent ..... ACTIVE (PR Guard)
+-------------------------------------------------------
+STATUS: SECURE PRE-MERGE [Zero-Trust Policy Enforced]
+```
 
 <br/>
 
