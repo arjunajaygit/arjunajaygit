@@ -4,9 +4,8 @@
 
 <br/>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-58A6FF?style=for-the-badge&logo=linkedin&logoColor=0d1117)](https://linkedin.com/in/arjun-a-1b863a265/)
-[![Email](https://img.shields.io/badge/Email-58A6FF?style=for-the-badge&logo=gmail&logoColor=0d1117)](mailto:rjun.ajay@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-58A6FF?style=for-the-badge&logo=github&logoColor=0d1117)](https://github.com/arjunajaygit)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/arjun-a-1b863a265/)
+[![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rjun.ajay@gmail.com)
 
 </div>
 
