@@ -2,83 +2,54 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: "0 3 * * *"   # Daily at 03:00 UTC
-  workflow_dispatch:
+    - cron: '0 3 * * *'
+  workflow_dispatch: {}
 
 jobs:
   update-stats:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Fetch stats cards
+      - name: Fetch stats cards (resilient)
         shell: bash
         run: |
-          set -euo pipefail
-
+          set -u
           mkdir -p assets
-
-          fetch_svg() {
+          fetch_svg () {
             local url="$1"
             local out="$2"
+            local tmp="${out}.tmp"
 
-            echo "Fetching $out..."
-
-            curl \
-              --retry 5 \
-              --retry-delay 3 \
-              --retry-all-errors \
-              --connect-timeout 15 \
-              --max-time 60 \
-              -sS \
-              "$url" \
-              -o "$out"
-
-            # Ensure the downloaded file is actually an SVG
-            grep -q "<svg" "$out"
+            if curl --retry 4 --retry-delay 3 --retry-connrefused \
+                    --connect-timeout 10 --max-time 40 \
+                    -fsSL "$url" -o "$tmp"; then
+              mv "$tmp" "$out"
+              echo "Updated $out"
+              return 0
+            else
+              echo "Warning: failed to fetch $out from $url"
+              rm -f "$tmp"
+              return 1
+            fi
           }
 
-          # Overall Stats
-          fetch_svg \
-            "https://github-readme-stats-fast.vercel.app/api?username=arjunajaygit&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF&icon_color=58A6FF&count_private=false" \
-            assets/stats-overview.svg
+          failed=0
+          fetch_svg "https://github-readme-stats-fast.vercel.app/api?username=arjunajaygit&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF&icon_color=58A6FF&count_private=true" "assets/stats-overview.svg" || failed=1
+          fetch_svg "https://github-readme-stats-fast.vercel.app/api/top-langs/?username=arjunajaygit&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF" "assets/stats-langs.svg" || failed=1
+          fetch_svg "https://github-readme-streak-stats.herokuapp.com/?user=arjunajaygit&theme=github-dark-blue&hide_border=true&background=0D1117" "assets/stats-streak.svg" || failed=1
 
-          # Top Languages
-          fetch_svg \
-            "https://github-readme-stats-fast.vercel.app/api/top-langs/?username=arjunajaygit&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58A6FF" \
-            assets/stats-langs.svg
-
-          # Streak Card (fallback if unavailable)
-          if ! fetch_svg \
-            "https://streak-stats.demolab.com?user=arjunajaygit&theme=github-dark-blue&hide_border=true&background=0D1117" \
-            assets/stats-streak.svg; then
-
-            echo "⚠️ Streak service unavailable."
-
-            if git ls-files --error-unmatch assets/stats-streak.svg >/dev/null 2>&1; then
-              echo "Keeping previous streak card."
-              git checkout -- assets/stats-streak.svg
-            else
-              echo "No previous streak card found."
-              touch assets/stats-streak.svg
-            fi
-          fi
+          # Keep workflow green for transient provider outages.
+          # Optional: if you prefer strict mode, replace with: exit $failed
+          exit 0
 
       - name: Commit changes if any
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add assets/
-
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "chore: refresh github stats cards"
-            git push
-          fi
+          git add assets/*.svg
+          git diff --staged --quiet || git commit -m "chore: refresh github stats cards"
+          git push
