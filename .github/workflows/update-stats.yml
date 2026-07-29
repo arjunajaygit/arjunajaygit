@@ -80,5 +80,16 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: refresh github stats cards"
-            git push
+            current_branch="$(git rev-parse --abbrev-ref HEAD)"
+            for attempt in 1 2 3; do
+              echo "Push attempt ${attempt}..."
+              if git pull --rebase origin "${current_branch}" && git push origin "HEAD:${current_branch}"; then
+                echo "Pushed successfully."
+                exit 0
+              fi
+              git rebase --abort || true
+              sleep 5
+            done
+            echo "Failed to push changes after 3 attempts."
+            exit 1
           fi
